@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <span class="navbar-brand">Admin Panel</span>
+    <div class="ms-auto d-flex align-items-center">
+      <span class="me-3">Welcome, Admin</span>
+      <button class="btn btn-outline-light me-3" id="toggleSidebar">
+        <i class="bi bi-list"></i>
+      </button>
+      <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle">
+    </div>
+  </nav>
+  
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="bg-dark text-white position-fixed vh-100" style="width: 250px; transform: translateX(-100%); transition: transform 0.3s;">
+      <ul class="nav flex-column mt-3">
+        <li class="nav-item"><a href="#" class="nav-link text-white" (click)="showSection('welcome')">Welcome</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white" (click)="showSection('users')">Users</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white" (click)="showSection('trainers')">Trainers</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white" (click)="showSection('addTrainer')">Add Trainer</a></li>
+      </ul>
+      <button class="btn btn-outline-light me-3" (click)="toggleSidebar()">
+        <i class="bi bi-list"></i>
+      </button>
+      
+    </aside>
+  
+    <!-- Content -->
+    <main class="flex-grow-1 p-4" style="margin-left: 250px;">
+      <section *ngIf="activeSection === 'welcome'" class="text-center">
+        <h1>Welcome Admin</h1>
+      </section>
+  
+      <section *ngIf="activeSection === 'users'" id="users">
+        <h2>Users</h2>
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>UID</th><th>Name</th><th>Email</th><th>Total Runs</th><th>Total Wickets</th><th>Total Matches</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let player of players" (click)="showStats(player)">
+              <td>{{ player.userId }}</td><td>{{ player.username }}</td><td>{{ player.email }}</td>
+              <td>{{ player.totalRuns }}</td><td>{{ player.totalWickets }}</td><td>{{ player.totalMatches }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <canvas #playerChartCanvas id="playerChart" height="100"></canvas>
+      </section>
+  
+      <section *ngIf="activeSection === 'trainers'" id="trainers">
+        <h2>Trainers</h2>
+        <table class="table table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Name</th><th>ID</th><th>Experience</th><th>Email</th><th>City</th><th>Specialization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let trainer of trainers">
+              <td>{{ trainer.name }}</td><td>{{ trainer.id }}</td><td>{{ trainer.experience }}</td>
+              <td>{{ trainer.email }}</td><td>{{ trainer.city }}</td><td>{{ trainer.specialization }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+  
+      <section *ngIf="activeSection === 'addTrainer'" id="addTrainer">
+        <h2>Add Trainer</h2>
+        <form>
+          <div class="mb-3"><label>Name: <input type="text" class="form-control"></label></div>
+          <div class="mb-3"><label>Experience: <input type="number" class="form-control"></label></div>
+          <div class="mb-3"><label>Email: <input type="email" class="form-control"></label></div>
+          <div class="mb-3"><label>City: <input type="text" class="form-control"></label></div>
+          <div class="mb-3">
+            <label>Specialization:
+              <select class="form-select">
+                <option>Batting</option>
+                <option>Bowling</option>
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Trainer</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  

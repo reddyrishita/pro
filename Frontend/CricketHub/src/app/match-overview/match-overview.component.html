@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h1>MATCH STATISTICS</h1>
+    <div class="score">
+      <p *ngIf="teamA"><b>TEAM A:</b> {{teamA.teamScore}}/{{teamA.teamWickets}} ({{teamA.teamOvers}})</p>
+      <p *ngIf="teamB"><b>TEAM B:</b> {{teamB.teamScore}}/{{teamB.teamWickets}} ({{teamB.teamOvers}})</p>
+    </div>
+    <h2 *ngIf="match">
+      <ng-container *ngIf="match.winner === 'Tie'">
+        MATCH ENDED IN A TIE
+      </ng-container>
+      <ng-container *ngIf="match.winner !== 'Tie'">
+        {{match.winner}} WON THE MATCH
+      </ng-container>
+    </h2>
+  
+    <h3>PLAYERS REPORT</h3>
+    <div class="teams row">
+      <!-- Team A -->
+      <div class="team col-md-6" *ngIf="teamA">
+        <h4>TEAM A</h4>
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>Player ID</th>
+              <th>Player Name</th>
+              <th>R</th>
+              <th>W</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let playerId of teamAPlayerIds">
+              <td>{{ playerId }}</td>
+              <td>{{ getPlayerName(playerId) }}</td>
+              <td>{{ teamA.team[playerId][0] }}</td>
+              <td>{{ teamA.team[playerId][1] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Team B -->
+      <div class="team col-md-6" *ngIf="teamB">
+        <h4>TEAM B</h4>
+        <table class="table table-striped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>Player ID</th>
+              <th>Player Name</th>
+              <th>R</th>
+              <th>W</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let playerId of teamBPlayerIds">
+              <td>{{ playerId }}</td>
+              <td>{{ getPlayerName(playerId) }}</td>
+              <td>{{ teamB.team[playerId][0] }}</td>
+              <td>{{ teamB.team[playerId][1] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

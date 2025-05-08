@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+
+<div class="registration-container">
+    
+  
+    <!-- Registration Form -->
+    <div class="form-wrapper">
+      <h2 class="title">Join Tournament</h2>
+      <form (ngSubmit)="register()">
+        <!-- Name Input -->
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Name"
+            [(ngModel)]="name"
+            name="name"
+          />
+          <span class="error" *ngIf="nameError">{{ nameError }}</span>
+        </div>
+  
+        <!-- Email Input -->
+        <div class="form-group">
+          <input
+            type="email"
+            placeholder="E-mail"
+            [(ngModel)]="email"
+            name="email"
+          />
+          <span class="error" *ngIf="emailError">{{ emailError }}</span>
+        </div>
+  
+        <!-- Mobile Number Input -->
+        <div class="form-group">
+          <input
+            type="tel"
+            placeholder="Mobile Number"
+            [(ngModel)]="mobile"
+            name="mobile"
+          />
+          <span class="error" *ngIf="mobileError">{{ mobileError }}</span>
+        </div>
+  
+        <!-- Team Selection -->
+        <div class="form-group team-selection">
+          <label>
+            <input
+              type="radio"
+              name="team"
+              value="Team A"
+              [(ngModel)]="team"
+            />
+            Team A
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="team"
+              value="Team B"
+              [(ngModel)]="team"
+            />
+            Team B
+          </label>
+          <span class="error" *ngIf="teamError">{{ teamError }}</span>
+        </div>
+  
+        <!-- Position Selection -->
+        <div class="form-group position-selection">
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="positions.batsman"
+              name="batsman"
+            />
+            Batsman
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="positions.bowler"
+              name="bowler"
+            />
+            Bowler
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="positions.allrounder"
+              name="allrounder"
+            />
+            All-rounder
+          </label>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  

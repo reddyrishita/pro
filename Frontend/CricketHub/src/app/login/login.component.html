@@ -1,0 +1,77 @@
+<div class="login-page">
+  <div class="login-container">
+    <div class="login-content">
+      <h1>Welcome Back!</h1>
+      <p class="subtitle">Please log in to continue.</p>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            formControlName="username"
+            placeholder="Enter your username"
+            aria-label="Username"
+          />
+          <div
+            class="error"
+            *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid"
+          >
+            Username is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-input">
+            <input
+              type="{{ showPassword ? 'text' : 'password' }}"
+              id="password"
+              formControlName="password"
+              placeholder="Enter your password"
+              aria-label="Password"
+            />
+            <span class="toggle-password" (click)="togglePasswordVisibility()">
+              {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+            </span>
+          </div>
+          <div
+            class="error"
+            *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+          >
+            Password is required
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid || isLoading" class="login-button">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading" class="loading-spinner"></span>
+        </button>
+
+        <!-- <div class="social-login">
+          <p>Or log in with:</p>
+          <div class="social-buttons">
+            <button type="button" class="social-button google" (click)="loginWithGoogle()">
+              <img src="assets/icons/google.svg" alt="Google" /> Google
+            </button>
+            <button type="button" class="social-button facebook" (click)="loginWithFacebook()">
+              <img src="assets/icons/facebook.svg" alt="Facebook" /> Facebook
+            </button>
+          </div>
+        </div> -->
+
+        <p class="register-text">
+          Don't have an account? <a (click)="goToRegister()">Register</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <div class="login-image-container">
+    <img src="assets/image/wickets.png" alt="Login Illustration" />
+  </div>
+
+  <button class="dark-mode-toggle" (click)="toggleDarkMode()">
+    {{ isDarkMode ? '🌞' : '🌙' }}
+  </button>
+</div>

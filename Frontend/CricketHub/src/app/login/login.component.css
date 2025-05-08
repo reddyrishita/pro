@@ -1,0 +1,268 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #67b4d3, #fbe5d6);
+  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.login-page.dark-mode {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(51, 51, 51, 0.9)); /* Faded dark background */
+}
+
+.login-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-content {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background for the form */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.dark-mode .login-content {
+  background: rgba(0, 0, 0, 0.8); /* Darker background for dark mode */
+  color: #fff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dark-mode h1 {
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #0f0f0f;
+  margin-bottom: 30px;
+}
+
+.dark-mode .subtitle {
+  color: #ccc;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  color: #080808;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.dark-mode label {
+  color: #ddd;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode input {
+  background: #444;
+  border-color: #666;
+  color: #fff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #26a69a;
+  box-shadow: 0 0 8px rgba(38, 166, 154, 0.3);
+}
+
+.password-input {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background: #0e7bc4;
+}
+
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #26a69a;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login p {
+  font-size: 14px;
+  color: #131212;
+  margin-bottom: 10px;
+}
+
+.dark-mode .social-login p {
+  color: #ccc;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.social-button.google {
+  background: #db4437;
+  color: white;
+}
+
+.social-button.facebook {
+  background: #1877f2;
+  color: white;
+}
+
+.social-button:hover {
+  opacity: 0.9;
+}
+
+.register-text {
+  margin-top: 20px;
+  font-size: 14px;
+  
+  color: #0f0f0f;
+}
+
+.dark-mode .register-text {
+  color: #ccc;
+}
+
+.register-text a {
+  color: #3498db;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+.login-image-container {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Move image to the left */
+}
+
+.login-image-container img {
+  width: 140%; /* Increase image size */
+  height: 130%;
+  object-fit: cover;
+  margin-left: -50%; /* Move image further to the left */
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #26a69a;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background: #00796b;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-container,
+  .login-image-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .login-image-container img {
+    width: 100%;
+    height: 300px;
+    margin-left: 0;
+  }
+}
+

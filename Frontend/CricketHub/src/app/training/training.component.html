@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <!-- Dropdown Menu -->
+    <div class="dropdown">
+      <label for="coachType">Select Coach Type:</label>
+      <select id="coachType" [(ngModel)]="coachType">
+        <option value="">All</option>
+        <option value="Batting Coach">Batting Coach</option>
+        <option value="Bowling Coach">Bowling Coach</option>
+      </select>
+    </div>
+  
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search by location"
+        [(ngModel)]="searchQuery"
+      />
+      <button class="search-btn">🔍</button>
+    </div>
+  
+    <!-- Training Cards -->
+    <div class="card-container">
+      <div
+        *ngFor="let card of getFilteredCards()"
+        class="training-card"
+        [style.backgroundImage]="'url(' + card.image + ')'"
+      >
+        <div class="card-content">
+          <h3>{{ card.name }}</h3>
+          <p>Email: {{ card.email }}</p>
+          <p>Contact: {{ card.contact }}</p>
+          <p>Specialization: {{ card.specialization }}</p>
+          <p>Achievements: {{ card.achievements }}</p>
+          <p><i class="location-icon">📍</i>{{ card.location }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,20 @@
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  #sidebar {
+    transform: translateX(-100%);
+  }
+  #sidebar.open {
+    transform: translateX(0);
+  }
+  main {
+    margin-left: 0;
+    transition: margin-left 0.3s;
+  }
+  main.sidebar-open {
+    margin-left: 250px;
+  }
+  .hidden {
+    display: none;
+  }
+  

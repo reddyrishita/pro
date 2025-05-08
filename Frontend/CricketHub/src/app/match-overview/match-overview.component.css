@@ -1,0 +1,154 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Light gradient background */
+    color: #2d3436; /* Dark gray text for contrast */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .container {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading Styles */
+  h1, h2, h3, h4 {
+    color: #3e4b55; /* Bright blue for headings */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Score Section */
+  .score p {
+    font-size: 1.2rem;
+    color: #121414; /* Muted gray */
+    margin: 0;
+    padding: 5px;
+    background: #dfe6e9; /* Light gray background for score section */
+    border-radius: 5px;
+  }
+  
+  /* Table Styles */
+  .table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #2d3436; /* Dark text */
+    background-color: #f9f9f9; /* Light table background */
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dcdde1;
+  }
+  
+  .table th {
+    background: #00cec9; /* Light teal */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background: #ecf0f1; /* Slightly darker rows for alternate rows */
+  }
+  
+  /* Button/Icon Styles */
+  .edit-icon {
+    color: #fdcb6e; /* Light yellow-orange for edit icon */
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 8px;
+  }
+  
+  .edit-icon:hover {
+    color: #e17055; /* Darker shade on hover */
+  }
+  
+  .bat-icon {
+    color: #6c5ce7; /* Light purple for batting icon */
+  }
+  
+  .bowl-icon {
+    color: #00b894; /* Light green for bowling icon */
+  }
+  
+  /* Team Section */
+  .team {
+    margin-bottom: 20px;
+  }
+  
+  .team h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .batting {
+    background: rgba(0, 184, 148, 0.1); /* Light green tint for batting */
+  }
+  
+  .bowling {
+    background: rgba(108, 92, 231, 0.1); /* Light purple tint for bowling */
+  }
+  
+  /* Buttons Styling */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .team-select-btn {
+    background: #fdcb6e; /* Light yellow-orange */
+    color: #2d3436;
+  }
+  
+  .team-select-btn:hover {
+    background: #e17055; /* Darker shade on hover */
+  }
+  
+  .switch-innings-btn {
+    background: #00cec9; /* Light teal */
+    color: #ffffff;
+  }
+  
+  .switch-innings-btn:hover {
+    background: #0984e3; /* Blue shade on hover */
+  }
+  
+  .end-match-btn {
+    background: #e17055; /* Darker orange */
+    color: white;
+  }
+  
+  .end-match-btn:hover {
+    background: #d63031; /* Dark red shade on hover */
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .teams.row {
+      flex-direction: column;
+    }
+  
+    .team {
+      margin-bottom: 20px;
+    }
+  }
+  

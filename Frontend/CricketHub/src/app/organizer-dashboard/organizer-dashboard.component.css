@@ -1,0 +1,149 @@
+/* Apply gradient to the body or a wrapper element */
+.body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  margin: 20px;
+   /* Semi-transparent white background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Semi-transparent white background */
+  padding: 10px 0;
+  color: rgb(15, 15, 15);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.organizer-details {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.organizer-details table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.organizer-details th,
+.organizer-details td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.organizer-details th {
+  background-color: #f2f2f2;
+}
+
+.matches-section {
+  margin-top: 20px;
+}
+
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+
+
+.match-card:hover {
+  transform: translateY(-5px);
+}
+
+.match-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  overflow: hidden; /* Ensures no overflow outside the container */
+}
+
+.match-card img {
+  width: 100%;
+  height: 150px; /* Ensure this matches the intended height */
+  /* object-fit: cover; */
+  border-radius: 5px;
+  display: block;
+}
+
+.action-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+}
+
+.status-btn {
+  background-color: #28a745;
+}
+
+.status-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.overview-btn {
+  background-color: #007bff;
+}
+
+.overview-btn:hover {
+  background-color: #0056b3;
+}
+
+.players-btn {
+  background-color: #d34747;
+}
+
+.players-btn:hover {
+  background-color: #b30000;
+}
+
+
+.create-tournament {
+  margin-left: 20px;
+  color: #d81515;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.create-tournament:hover {
+  color: #02080f;
+  text-decoration: underline;
+}
+
+.btn-space {
+  /* display: flex; */
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

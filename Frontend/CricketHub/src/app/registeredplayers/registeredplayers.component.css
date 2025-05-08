@@ -1,0 +1,75 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #2d3436;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3, h4 {
+    color: #3e4b55;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #2d3436;
+    background-color: #f9f9f9;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dcdde1;
+}
+
+.table th {
+    background: #00cec9;
+    color: white;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #ecf0f1;
+}
+
+.team {
+    margin-bottom: 30px;
+}
+
+.team h4 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.thead-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
+@media (max-width: 768px) {
+    .teams.row {
+        flex-direction: column;
+    }
+
+    .team {
+        margin-bottom: 20px;
+    }
+}

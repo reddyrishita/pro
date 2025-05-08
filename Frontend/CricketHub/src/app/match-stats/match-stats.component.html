@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="teamA && teamB">
+  <h1>MATCH STATISTICS</h1>
+  <div class="score">
+    <p><b>TEAM A:</b> {{teamA.teamScore}}/{{teamA.teamWickets}} ({{teamA.teamOvers}})</p>
+    <p><b>TEAM B:</b> {{teamB.teamScore}}/{{teamB.teamWickets}} ({{teamB.teamOvers}})</p>
+  </div>
+  <h2 *ngIf="matchStatus === 'Ongoing'">Match in Progress</h2>
+  <h2 *ngIf="matchStatus === 'Completed'">Match Completed</h2>
+
+  <h3>PLAYERS REPORT</h3>
+  <div class="teams row">
+    <!-- Team A -->
+    <div
+      class="team batting col-md-6"
+      [ngClass]="{ 'bowling': battingTeam !== 'A' }"
+    >
+      <h4>{{teamA.teamName}}</h4>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Player ID</th>
+            <th>Player Name</th>
+            <th>{{ battingTeam === 'A' ? 'R' : 'W' }}</th>
+            <!-- <th>Status</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of teamA.team | keyvalue">
+            <td>{{player.key}}</td>
+            <td>{{playerNames[player.key] || 'Loading...'}}</td>
+            <td>
+              <span *ngIf="battingTeam === 'A'">
+                {{ player.value[0] }}
+                <mat-icon class="edit-icon" (click)="openEditDialog(teamA, player.key, 'runs')">
+                  edit
+                </mat-icon>
+              </span>
+              <span *ngIf="battingTeam !== 'A'">
+                {{ player.value[1] }}
+                <mat-icon class="edit-icon" (click)="openEditDialog(teamA, player.key, 'wickets')">
+                  edit
+                </mat-icon>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Team B -->
+    <div
+      class="team col-md-6"
+      [ngClass]="{ 'bowling': battingTeam === 'A', 'batting': battingTeam !== 'A' }"
+    >
+      <h4>TEAM B</h4>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Player ID</th>
+            <th>Player Name</th>
+            <th>{{ battingTeam === 'B' ? 'R' : 'W' }}</th>
+            <!-- <th>Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of teamB.team | keyvalue">
+            <td>{{ player.key }}</td>
+            <td>{{playerNames[player.key] || 'Loading...'}}</td>
+            <td>
+              <span *ngIf="battingTeam === 'B'">
+                {{ player.value[0] }}
+                <mat-icon class="edit-icon" (click)="openEditDialog(teamB, player.key, 'runs')">
+                  edit
+                </mat-icon>
+              </span>
+              <span *ngIf="battingTeam !== 'B'">
+                {{ player.value[1] }}
+                <mat-icon class="edit-icon" (click)="openEditDialog(teamB, player.key, 'wickets')">
+                  edit
+                </mat-icon>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Buttons Section -->
+  <div class="buttons">
+    <button *ngIf="!teamsSelected" (click)="selectTeams()" class="team-select-btn">Change Batting</button>
+    <button *ngIf="teamsSelected && !inningsCompleted" (click)="switchInnings()" class="switch-innings-btn">Innings Completed</button>
+    <button *ngIf="!matchEnded" (click)="endMatch()" class="end-match-btn">End Match</button>
+  </div>
+</div>

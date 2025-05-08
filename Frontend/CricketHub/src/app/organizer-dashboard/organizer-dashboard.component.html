@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div class="body">
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="header-title">Organizer Dashboard</h1>
+    </div>
+
+    <!-- Organizer Details -->
+    <div class="organizer-details">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Matches Organized</th>
+          <th>Sponsors</th>
+          <th>Support Staff</th>
+        </tr>
+        <tr>
+          <td>{{ organizer.name }}</td>
+          <td>{{ organizer.matchesOrganized }}</td>
+          <td>{{ organizer.sponsors }}</td>
+          <td>{{ organizer.supportStaff }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Matches Section -->
+    <div class="matches-section">
+      <h3>
+        Your Matches
+        <span class="create-tournament" (click)="navigateToCreateTournament()">Create Tournament</span>
+      </h3>
+      <div class="matches-grid">
+        <div class="match-card" *ngFor="let match of matches">
+          <!-- Match Image -->
+          <img class="organizer-img" [src]="match.image" alt="Match Image" />
+
+          <!-- Match Details -->
+          <p><i class="fa fa-map-marker"></i> {{ match.location }}</p>
+          <p>{{ match.date | date: 'dd-MMM-yyyy' }}</p>
+
+          <div class="btn-space">
+            
+            <!-- Status and Overview Buttons -->
+            <button
+            class="action-btn status-btn"
+            [ngClass]="{ 'disabled': match.status !== 'Upcoming' }"
+            (click)="handleStatusClick(match)"
+            >
+            {{ match.status === 'Upcoming' ? 'START' : match.status }}
+          </button>
+          <button 
+          class="action-btn overview-btn" 
+          [disabled]="match.status !== 'Completed'"
+          (click)="handleOverviewClick(match)"
+          >
+          Overview
+        </button>
+        
+        <button 
+        class="action-btn players-btn" 
+        (click)="getRegisteredPlayers(match)"
+        >
+        Registered Players
+      </button>
+      
+    </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

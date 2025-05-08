@@ -1,0 +1,80 @@
+<h2 mat-dialog-title class="text-center text-primary mb-4 font-weight-bold">Update Ball Score</h2>
+
+<mat-dialog-content>
+<div class="dialog-content">
+<p class="text-center mb-3 font-italic text-muted">Updating score for <b>{{ data.name }}</b></p>
+
+<!-- Player ID (Read-only) -->
+<div class="form-group mb-3">
+  <label for="uidInput" class="font-weight-bold text-dark">Player ID</label>
+  <input
+    id="uidInput"
+    matInput
+    type="text"
+    [value]="data.uid"
+    readonly
+    class="form-control form-control-lg rounded-lg border-0 shadow-sm p-3"
+  />
+</div>
+
+<!-- Team Name -->
+<div class="form-group mb-3">
+  <label for="teamIdInput" class="font-weight-bold text-dark">Team</label>
+  <input
+    id="teamIdInput"
+    matInput
+    type="text"
+    [(ngModel)]="data.teamId"
+    
+    class="form-control form-control-lg rounded-lg border-0 shadow-sm p-3"
+  />
+</div>
+
+<!-- Runs Selection -->
+<div class="form-group mb-3">
+  <label for="runsInput" class="font-weight-bold text-dark">Runs</label>
+  <select
+    id="runsInput"
+    matInput
+    [(ngModel)]="data.runs"
+    class="form-control form-control-lg rounded-lg border-0 shadow-sm p-3"
+  >
+    <option *ngFor="let run of runsOptions" [value]="run">{{run}}</option>
+  </select>
+</div>
+
+<!-- Wickets Selection -->
+<div class="form-group mb-3">
+  <label for="wicketsInput" class="font-weight-bold text-dark">Wicket</label>
+  <select
+    id="wicketsInput"
+    matInput
+    [(ngModel)]="data.wickets"
+    class="form-control form-control-lg rounded-lg border-0 shadow-sm p-3"
+  >
+    <option *ngFor="let wicket of wicketsOptions" [value]="wicket">{{wicket}}</option>
+  </select>
+</div>
+
+<!-- Deliveries (Fixed to 1) -->
+<div class="form-group mb-3">
+  <label for="deliveriesInput" class="font-weight-bold text-dark">Deliveries</label>
+  <input
+    id="deliveriesInput"
+    matInput
+    type="number"
+    [(ngModel)]="data.deliveries"
+    [value]="1"
+    readonly
+    class="form-control form-control-lg rounded-lg border-0 shadow-sm p-3"
+  />
+</div>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-between p-3">
+<button mat-button class="btn btn-outline-danger px-5 rounded-lg shadow-sm" (click)="onCancel()">Cancel</button>
+<button mat-button color="primary" class="btn btn-success px-5 rounded-lg shadow-sm" (click)="onUpdate()">Update</button>
+</mat-dialog-actions>
+
+

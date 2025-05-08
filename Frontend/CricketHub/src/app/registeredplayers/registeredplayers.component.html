@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h1>REGISTERED PLAYERS</h1>
+
+  <div class="teams row">
+    <!-- Team A -->
+    <div class="team col-md-6">
+      <h4>{{ teamA.teamName }}</h4>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Player ID</th>
+            <th>Player Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of teamA.team | keyvalue">
+            <td>{{ player.key }}</td>
+            <td>{{ playerNames[player.key] || 'Loading...' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Team B -->
+    <div class="team col-md-6">
+      <h4>{{ teamB.teamName }}</h4>
+      <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Player ID</th>
+            <th>Player Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of teamB.team | keyvalue">
+            <td>{{ player.key }}</td>
+            <td>{{ playerNames[player.key] || 'Loading...' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

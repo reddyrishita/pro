@@ -1,0 +1,116 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.registration-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 50px;
+}
+
+.logout-btn {
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #375bb5;
+}
+
+.form-container {
+  margin: 50px auto;
+  width: 400px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+h2 {
+  text-align: center;
+  color: #4e73df;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 8px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #4e73df;
+  box-shadow: 0 0 8px rgba(78, 115, 223, 0.3);
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background-color: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #375bb5;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
