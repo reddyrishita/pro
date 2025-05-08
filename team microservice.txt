@@ -1,0 +1,28 @@
+const express = require('express');
+const router = express.Router();
+const teamController = require('../controllers/teamController');
+
+router.post('/create-for-match', teamController.createTeamsForMatch);
+router.post('/register', teamController.registerUser);
+router.get('/matchStats/:matchId', teamController.getMatchStats);
+router.get('/:matchId', teamController.getTeamDetails);
+router.get('/:matchId/:teamName/score', teamController.getTeamScore);
+router.get('/:matchId/:teamName/player-stats', teamController.getTeamPlayerStats);
+router.get('/team/score-history/:matchId/:teamName', teamController.getTeamScoreHistory);
+router.get('/registeredPlayers/:matchId', teamController.getRegisteredPlayers);
+
+module.exports = router;
+# 1. Start Zookeeper
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+
+# 2. Start Kafka
+kafka-server-start.bat ..\..\config\server.properties
+
+# 3. Create Topic
+kafka-topics.bat --create --topic match-score --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+# 4. Start Producer
+kafka-console-producer.bat --broker-list localhost:9092 --topic match-score
+
+# 5. Start Consumer
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic match-score --from-beginning
